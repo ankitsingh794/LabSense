@@ -119,7 +119,7 @@ export const biomarkers = [
         standardUnit: 'mg/dL',
         regex: /(?:LDL Cholesterol|LDL)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*[HL]?\s*([a-zA-Z\/]+)/i
     },
-    
+
     // --- Complete Blood Count (CBC) ---
     {
         name: 'White Blood Cell Count',
@@ -156,7 +156,7 @@ export const biomarkers = [
         standardUnit: 'x10^3/uL',
         regex: /(?:Platelet Count|Platelets)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*[HL]?\s*([a-zA-Z0-9^/µL]+)/i
     },
-    
+
     // --- Thyroid Panel ---
     {
         name: 'Thyroid-Stimulating Hormone',
@@ -188,4 +188,333 @@ export const biomarkers = [
         standardUnit: 'ng/mL',
         regex: /(?:Vitamin D|25-Hydroxy)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*[HL]?\s*([a-zA-Z\/]+)/i
     },
+    // --- Renal / Kidney Function Panel ---
+    {
+        name: 'Uric Acid',
+        aliases: ['Uric Acid'],
+        category: 'Renal Panel',
+        standardUnit: 'mg/dL',
+        regex: /(?:Uric Acid)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*[HL]?\s*([a-zA-Z\/]+)/i
+    },
+    {
+        name: 'Calcium',
+        aliases: ['Calcium', 'Ca'],
+        category: 'Renal Panel',
+        standardUnit: 'mg/dL',
+        regex: /(?:Calcium|Ca)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*[HL]?\s*([a-zA-Z\/]+)/i
+    },
+    {
+        name: 'Phosphorus',
+        aliases: ['Phosphorus', 'Phosphate', 'PO4'],
+        category: 'Renal Panel',
+        standardUnit: 'mg/dL',
+        regex: /(?:Phosphorus|Phosphate|PO4)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*[HL]?\s*([a-zA-Z\/]+)/i
+    },
+
+    // --- Iron Studies ---
+    {
+        name: 'Ferritin',
+        aliases: ['Ferritin'],
+        category: 'Iron Studies',
+        standardUnit: 'ng/mL',
+        regex: /(?:Ferritin)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*[HL]?\s*([a-zA-Z\/]+)/i
+    },
+    {
+        name: 'Iron',
+        aliases: ['Iron', 'Serum Iron'],
+        category: 'Iron Studies',
+        standardUnit: 'µg/dL',
+        regex: /(?:Iron|Serum Iron)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*[HL]?\s*([µa-zA-Z\/]+)/i
+    },
+    {
+        name: 'Total Iron-Binding Capacity',
+        aliases: ['TIBC', 'Total Iron-Binding Capacity'],
+        category: 'Iron Studies',
+        standardUnit: 'µg/dL',
+        regex: /(?:TIBC|Total Iron-Binding Capacity)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*[HL]?\s*([µa-zA-Z\/]+)/i
+    },
+
+    // --- Inflammatory Markers ---
+    {
+        name: 'C-Reactive Protein',
+        aliases: ['CRP', 'C-Reactive Protein'],
+        category: 'Inflammation',
+        standardUnit: 'mg/L',
+        regex: /(?:CRP|C-Reactive Protein)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*[HL]?\s*([a-zA-Z\/]+)/i
+    },
+    {
+        name: 'Erythrocyte Sedimentation Rate',
+        aliases: ['ESR', 'Erythrocyte Sedimentation Rate'],
+        category: 'Inflammation',
+        standardUnit: 'mm/hr',
+        regex: /(?:ESR|Erythrocyte Sedimentation Rate)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*[HL]?\s*(mm\/hr)/i
+    },
+
+    // --- Cardiac Markers ---
+    {
+        name: 'Troponin I',
+        aliases: ['Troponin I'],
+        category: 'Cardiac Markers',
+        standardUnit: 'ng/mL',
+        regex: /(?:Troponin I)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*[HL]?\s*([ng\/mL]+)/i
+    },
+    {
+        name: 'BNP',
+        aliases: ['BNP', 'B-Type Natriuretic Peptide'],
+        category: 'Cardiac Markers',
+        standardUnit: 'pg/mL',
+        regex: /(?:BNP|B-Type Natriuretic Peptide)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*[HL]?\s*(pg\/mL)/i
+    },
+
+    // --- Coagulation ---
+    {
+        name: 'Prothrombin Time',
+        aliases: ['PT', 'Prothrombin Time'],
+        category: 'Coagulation',
+        standardUnit: 'sec',
+        regex: /(?:PT|Prothrombin Time)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*[HL]?\s*(sec)/i
+    },
+    {
+        name: 'INR',
+        aliases: ['INR', 'International Normalized Ratio'],
+        category: 'Coagulation',
+        standardUnit: '',
+        regex: /(?:INR|International Normalized Ratio)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)/i
+    },
+    {
+        name: 'aPTT',
+        aliases: ['aPTT', 'APTT', 'Activated Partial Thromboplastin Time'],
+        category: 'Coagulation',
+        standardUnit: 'sec',
+        regex: /(?:aPTT|APTT|Activated Partial Thromboplastin Time)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*(sec)/i
+    },
+
+    // --- Pancreatic Enzymes ---
+    {
+        name: 'Amylase',
+        aliases: ['Amylase'],
+        category: 'Pancreatic Enzymes',
+        standardUnit: 'U/L',
+        regex: /(?:Amylase)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*(U\/L)/i
+    },
+    {
+        name: 'Lipase',
+        aliases: ['Lipase'],
+        category: 'Pancreatic Enzymes',
+        standardUnit: 'U/L',
+        regex: /(?:Lipase)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*(U\/L)/i
+    },
+
+    // --- Reproductive Hormones ---
+    {
+        name: 'Testosterone',
+        aliases: ['Testosterone'],
+        category: 'Hormones',
+        standardUnit: 'ng/dL',
+        regex: /(?:Testosterone)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*(ng\/dL)/i
+    },
+    {
+        name: 'Estradiol',
+        aliases: ['Estradiol', 'E2'],
+        category: 'Hormones',
+        standardUnit: 'pg/mL',
+        regex: /(?:Estradiol|E2)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*(pg\/mL)/i
+    },
+    {
+        name: 'Progesterone',
+        aliases: ['Progesterone'],
+        category: 'Hormones',
+        standardUnit: 'ng/mL',
+        regex: /(?:Progesterone)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*(ng\/mL)/i
+    },
+    {
+        name: 'FSH',
+        aliases: ['FSH', 'Follicle Stimulating Hormone'],
+        category: 'Hormones',
+        standardUnit: 'mIU/mL',
+        regex: /(?:FSH|Follicle Stimulating Hormone)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*(mIU\/mL)/i
+    },
+    {
+        name: 'LH',
+        aliases: ['LH', 'Luteinizing Hormone'],
+        category: 'Hormones',
+        standardUnit: 'mIU/mL',
+        regex: /(?:LH|Luteinizing Hormone)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*(mIU\/mL)/i
+    },
+    {
+        name: 'Prolactin',
+        aliases: ['Prolactin'],
+        category: 'Hormones',
+        standardUnit: 'ng/mL',
+        regex: /(?:Prolactin)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*(ng\/mL)/i
+    },
+
+    // --- Cortisol / Stress Hormone ---
+    {
+        name: 'Cortisol',
+        aliases: ['Cortisol'],
+        category: 'Hormones',
+        standardUnit: 'µg/dL',
+        regex: /(?:Cortisol)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*(µg\/dL)/i
+    },
+
+    // --- Vitamins / Minerals ---
+    {
+        name: 'Vitamin B12',
+        aliases: ['Vitamin B12'],
+        category: 'Vitamins',
+        standardUnit: 'pg/mL',
+        regex: /(?:Vitamin B12)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*(pg\/mL)/i
+    },
+    {
+        name: 'Magnesium',
+        aliases: ['Magnesium', 'Mg'],
+        category: 'Minerals',
+        standardUnit: 'mg/dL',
+        regex: /(?:Magnesium|Mg)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*(mg\/dL)/i
+    },
+    {
+        name: 'Zinc',
+        aliases: ['Zinc'],
+        category: 'Minerals',
+        standardUnit: 'µg/dL',
+        regex: /(?:Zinc)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*(µg\/dL)/i
+    },
+
+    // --- Tumor Markers ---
+    {
+        name: 'PSA',
+        aliases: ['PSA', 'Prostate Specific Antigen'],
+        category: 'Tumor Markers',
+        standardUnit: 'ng/mL',
+        regex: /(?:PSA|Prostate Specific Antigen)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*(ng\/mL)/i
+    },
+    {
+        name: 'CA-125',
+        aliases: ['CA-125'],
+        category: 'Tumor Markers',
+        standardUnit: 'U/mL',
+        regex: /(?:CA-125)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*(U\/mL)/i
+    },
+    {
+        name: 'CEA',
+        aliases: ['CEA', 'Carcinoembryonic Antigen'],
+        category: 'Tumor Markers',
+        standardUnit: 'ng/mL',
+        regex: /(?:CEA|Carcinoembryonic Antigen)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*(ng\/mL)/i
+    },
+    // --- Infectious Disease Serology ---
+    {
+        name: 'HIV Antibody',
+        aliases: ['HIV Ab', 'HIV Antibody'],
+        category: 'Infectious Disease',
+        standardUnit: '',
+        regex: /(?:HIV Ab|HIV Antibody)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)/i
+    },
+    {
+        name: 'Hepatitis B Surface Antigen',
+        aliases: ['HBsAg', 'Hepatitis B Surface Antigen'],
+        category: 'Infectious Disease',
+        standardUnit: '',
+        regex: /(?:HBsAg|Hepatitis B Surface Antigen)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)/i
+    },
+    {
+        name: 'Hepatitis C Antibody',
+        aliases: ['Anti-HCV', 'HCV Ab'],
+        category: 'Infectious Disease',
+        standardUnit: '',
+        regex: /(?:Anti-HCV|HCV Ab)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)/i
+    },
+    {
+        name: 'Tuberculosis Quantiferon',
+        aliases: ['Quantiferon', 'TB Quantiferon'],
+        category: 'Infectious Disease',
+        standardUnit: 'IU/mL',
+        regex: /(?:Quantiferon|TB Quantiferon)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*(IU\/mL)/i
+    },
+
+    // --- Autoimmune / Rheumatology ---
+    {
+        name: 'ANA',
+        aliases: ['ANA', 'Antinuclear Antibody'],
+        category: 'Autoimmune',
+        standardUnit: 'titer',
+        regex: /(?:ANA|Antinuclear Antibody)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*(titer)?/i
+    },
+    {
+        name: 'Rheumatoid Factor',
+        aliases: ['RF', 'Rheumatoid Factor'],
+        category: 'Autoimmune',
+        standardUnit: 'IU/mL',
+        regex: /(?:RF|Rheumatoid Factor)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*(IU\/mL)/i
+    },
+    {
+        name: 'Anti-CCP',
+        aliases: ['Anti-CCP', 'Cyclic Citrullinated Peptide Antibody'],
+        category: 'Autoimmune',
+        standardUnit: 'U/mL',
+        regex: /(?:Anti-CCP|Cyclic Citrullinated Peptide Antibody)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*(U\/mL)/i
+    },
+
+    // --- Bone & Metabolism ---
+    {
+        name: 'Parathyroid Hormone',
+        aliases: ['PTH', 'Parathyroid Hormone'],
+        category: 'Bone/Metabolism',
+        standardUnit: 'pg/mL',
+        regex: /(?:PTH|Parathyroid Hormone)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*(pg\/mL)/i
+    },
+    {
+        name: 'Alkaline Phosphatase, Bone Specific',
+        aliases: ['Bone ALP', 'Bone Alkaline Phosphatase'],
+        category: 'Bone/Metabolism',
+        standardUnit: 'U/L',
+        regex: /(?:Bone ALP|Bone Alkaline Phosphatase)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*(U\/L)/i
+    },
+    {
+        name: 'Osteocalcin',
+        aliases: ['Osteocalcin'],
+        category: 'Bone/Metabolism',
+        standardUnit: 'ng/mL',
+        regex: /(?:Osteocalcin)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*(ng\/mL)/i
+    },
+
+    // --- Neurology / Muscle ---
+    {
+        name: 'Creatine Kinase',
+        aliases: ['CK', 'Creatine Kinase', 'CPK'],
+        category: 'Neurology/Muscle',
+        standardUnit: 'U/L',
+        regex: /(?:CK|Creatine Kinase|CPK)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*(U\/L)/i
+    },
+    {
+        name: 'LDH',
+        aliases: ['LDH', 'Lactate Dehydrogenase'],
+        category: 'Neurology/Muscle',
+        standardUnit: 'U/L',
+        regex: /(?:LDH|Lactate Dehydrogenase)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*(U\/L)/i
+    },
+
+    // --- Rare Tumor / Special Markers ---
+    {
+        name: 'CA 19-9',
+        aliases: ['CA 19-9'],
+        category: 'Tumor Markers',
+        standardUnit: 'U/mL',
+        regex: /(?:CA ?19-9)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*(U\/mL)/i
+    },
+    {
+        name: 'Alpha-fetoprotein',
+        aliases: ['AFP', 'Alpha-fetoprotein'],
+        category: 'Tumor Markers',
+        standardUnit: 'ng/mL',
+        regex: /(?:AFP|Alpha-fetoprotein)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*(ng\/mL)/i
+    },
+    {
+        name: 'Beta-hCG',
+        aliases: ['hCG', 'Beta-hCG'],
+        category: 'Tumor Markers / Pregnancy',
+        standardUnit: 'mIU/mL',
+        regex: /(?:hCG|Beta-hCG)[\s,:.•●]*([<>≥]?\s*\d+(?:\.\d+)?)\s*(mIU\/mL)/i
+    }
 ];
