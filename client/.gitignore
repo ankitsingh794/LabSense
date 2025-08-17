@@ -1,6 +1,3 @@
-# Node modules
-node_modules/
-
 # Logs
 logs
 *.log
@@ -8,50 +5,20 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+lerna-debug.log*
 
-# Runtime data
-pids
-*.pid
-*.seed
-*.pid.lock
+node_modules
+dist
+dist-ssr
+*.local
 
-# Dependency directories
-bower_components/
-jspm_packages/
-
-# Build outputs
-dist/
-build/
-.next/
-.out/
-.cache/
-.temp/
-
-# Vite cache
-.vite/
-
-# Coverage
-coverage/
-
-# Env files (secrets, keys, tokens)
-.env
-.env.*.local
-
-# IDEs and editors
-.vscode/
-.idea/
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
-
-# OS-specific
-.DS_Store
-Thumbs.db
-
-# TypeScript
-*.tsbuildinfo
-
-# Optional: Keep local data / configs out of git
-*.local
