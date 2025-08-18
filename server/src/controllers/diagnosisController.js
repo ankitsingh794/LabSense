@@ -58,11 +58,11 @@ export async function createDiagnosis(req, res, next) {
  */
 export async function getUserDiagnoses(req, res, next) {
     try {
-        const diagnoses = await find({ user: req.user.id })
+        const diagnoses = await Diagnosis.find({ user: req.user.id })
             .populate('report', 'reportName reportType') // Optionally populate linked report info
             .sort({ createdAt: -1 });
             
-        sendSuccess(res, 200, 'Diagnoses retrieved successfully.', diagnoses);
+        responseHelper.sendSuccess(res, 200, 'Diagnoses retrieved successfully.', diagnoses);
     } catch (error) {
         next(error);
     }

@@ -11,6 +11,7 @@ import {
     resetPassword
 } from '../controllers/authController.js';
 import { protect } from '../middleware/authMiddleware.js';
+import tokenUtils from '../utils/tokenUtils.js';
 
 const router = Router();
 
@@ -38,8 +39,8 @@ router.get('/google/callback',
         session: false
     }),
     (req, res) => {
-        const { accessToken } = issueTokens(req.user);
-        
+        const { accessToken, refreshToken } = tokenUtils.issueTokens(req.user);
+
         const userJson = JSON.stringify({
             _id: req.user._id,
             name: req.user.name,
@@ -47,7 +48,9 @@ router.get('/google/callback',
             role: req.user.role,
         });
 
-        res.redirect(`${process.env.CLIENT_URL}/auth/callback?accessToken=${accessToken}&user=${encodeURIComponent(userJson)}`);
+        res.redirect(
+          `${process.env.CLIENT_ORIGIN}/auth/callback?accessToken=${accessToken}&refreshToken=${refreshToken}&user=${encodeURIComponent(userJson)}`
+        );
     }
 );
 

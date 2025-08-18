@@ -1,4 +1,3 @@
-// src/app.js
 import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
@@ -12,7 +11,7 @@ import { notFound, errorHandler } from './middleware/error.js';
 const app = express();
 
 
-// --- Security & middleware ---
+// Middleware setup
 app.use(cors({
   origin: process.env.CLIENT_ORIGIN || '*',  
   credentials: true
@@ -24,6 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(passport.initialize());
 
 
+// Health check route
 app.get('/health', (_req, res) => {
   res.json({
     ok: true,

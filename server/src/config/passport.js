@@ -8,7 +8,7 @@ passport.use(
         {
             clientID: process.env.GOOGLE_CLIENT_ID,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-            callbackURL: '/api/auth/google/callback',
+            callbackURL: process.env.GOOGLE_CALLBACK_URL,
         },
         async (accessToken, refreshToken, profile, done) => {
             try {
@@ -18,8 +18,12 @@ passport.use(
                 }
                 user = await User.findOne({ email: profile.emails[0].value });
                 if (user) {
-                    return done(new Error('This email is already registered. Please log in with your password.'), false);
+                    user.googleId = profile.id;
+                    user.provider = 'google';
+                    await user.save();
+                    return done(null, user);
                 }
+
                 const newUser = await User.create({
                     googleId: profile.id,
                     provider: 'google',

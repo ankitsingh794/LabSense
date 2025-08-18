@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { protect } from '../middleware/authMiddleware.js';
-import { createDiagnosis, getUserDiagnoses } from '../controllers/diagnosisController.js';
+import { createDiagnosis, getUserDiagnoses, getDiagnosisById } from '../controllers/diagnosisController.js';
 
 const router = Router();
 

@@ -273,7 +273,7 @@ const Chat = () => {
                       <div className="text-sm leading-relaxed">{message.content}</div>
                       <p className={`text-xs mt-2 ${message.sender === "user"
                         ? "text-primary-foreground/70"
-                        : "text-muted-foreground"
+                        : "text-black/70"
                         }`}>
                         {formatTime(message.timestamp)}
                       </p>

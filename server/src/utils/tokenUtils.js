@@ -62,8 +62,20 @@ const verifyToken = (token, tokenType = 'access') => {
   }
 };
 
+/**
+ * Issues both access and refresh tokens for a user.
+ * @param {object} user - The user object (must have _id).
+ * @returns {{ accessToken: string, refreshToken: string }}
+ */
+const issueTokens = (user) => {
+  const accessToken = generateAccessToken(user._id);
+  const refreshToken = generateRefreshToken(user._id);
+  return { accessToken, refreshToken };
+};
+
 export default {
   generateAccessToken,
   generateRefreshToken,
   verifyToken,
+  issueTokens,
 };

@@ -32,7 +32,7 @@ const Navbar = () => {
     );
   };
 
-const baseNavLinks = [
+  const baseNavLinks = [
     { name: "Home", path: "/" },
     { name: "Features", path: "/?scroll=features" },
     { name: "About", path: "/?scroll=about" },
@@ -41,13 +41,13 @@ const baseNavLinks = [
   const authNavLinks = [
     { name: "Dashboard", path: "/dashboard" },
   ];
-  
+
   const navLinks = isAuthenticated ? [...baseNavLinks, ...authNavLinks] : baseNavLinks;
 
   // --- 5. LOGOUT HANDLER ---
   const handleLogout = async () => {
     const token = localStorage.getItem("accessToken");
-    
+
     try {
       await fetch(`${API_BASE_URL}/auth/logout`, {
         method: 'POST',
@@ -64,6 +64,20 @@ const baseNavLinks = [
       navigate("/login");
     }
   };
+
+  useEffect(() => {
+    const handleAuthChange = () => {
+      setIsAuthenticated(!!localStorage.getItem("accessToken"));
+    };
+
+    window.addEventListener("storage", handleAuthChange);
+    window.addEventListener("authChange", handleAuthChange); // 👈 custom event
+
+    return () => {
+      window.removeEventListener("storage", handleAuthChange);
+      window.removeEventListener("authChange", handleAuthChange);
+    };
+  }, []);
 
 
   return (
@@ -86,11 +100,10 @@ const baseNavLinks = [
               <Link
                 key={link.name}
                 to={link.path}
-                className={`text-sm font-medium transition-all duration-300 hover:text-primary hover:scale-105 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full ${
-                  isActive(link.path)
+                className={`text-sm font-medium transition-all duration-300 hover:text-primary hover:scale-105 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full ${isActive(link.path)
                     ? "text-primary after:w-full"
                     : "text-muted-foreground"
-                }`}
+                  }`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {link.name}
